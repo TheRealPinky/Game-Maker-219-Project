@@ -1,0 +1,6 @@
+//instance_create(x, y, obj_bullet); // creates bullet.
+bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+// example use, bullet.x = 5;
+bullet.direction = image_angle;
+bullet.image_angle = image_angle;
+bullet.speed = 15;
