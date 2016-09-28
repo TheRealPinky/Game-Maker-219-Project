@@ -8,6 +8,59 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>player_health = 6;
+iframes = 0; //sets up the code to make the player briefly invincible when hit.
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>iframes -= 1;
+if (player_health &lt;= 0)
+{
+    
+
+    game_end(); //closes the game when the player dies
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="5" enumb="32">
       <action>
         <libid>1</libid>
@@ -53,49 +106,49 @@ bullet.speed = 15;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check(vk_left))
-{
-    direction=180;
-    speed=5;
-}
-
-if (keyboard_check(vk_left) &amp;&amp; keyboard_check(vk_up))
-{
-    direction=135;
-    speed=5;
-}
-
-if (keyboard_check(vk_left) &amp;&amp; keyboard_check(vk_down))
+            <string>if (keyboard_check(vk_left) &amp;&amp; keyboard_check(vk_down))
 {
     direction=225;
     speed=5;
 }
 
-if (keyboard_check(vk_right))
+else if (keyboard_check(vk_left) &amp;&amp; keyboard_check(vk_up))
 {
-    direction=0;
+    direction=135;
     speed=5;
 }
 
-if (keyboard_check(vk_right) &amp;&amp; keyboard_check(vk_up))
+else if (keyboard_check(vk_right) &amp;&amp; keyboard_check(vk_up))
 {
     direction=45;
     speed=5;
 }
 
-if (keyboard_check(vk_right) &amp;&amp; keyboard_check(vk_down))
+else if (keyboard_check(vk_right) &amp;&amp; keyboard_check(vk_down))
 {
     direction=315;
     speed=5;
 }
 
-if (keyboard_check(vk_up))
+else if (keyboard_check(vk_left))
+{
+    direction=180;
+    speed=5;
+}
+
+else if (keyboard_check(vk_right))
+{
+    direction=0;
+    speed=5;
+}
+
+else if (keyboard_check(vk_up))
 {
     direction=90;
     speed=5;
 }
 
-if (keyboard_check(vk_down))
+else if (keyboard_check(vk_down))
 {
     direction=270;
     speed=5;
