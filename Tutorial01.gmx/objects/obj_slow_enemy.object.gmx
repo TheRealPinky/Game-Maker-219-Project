@@ -51,8 +51,8 @@ health = 6;
           <argument>
             <kind>1</kind>
             <string>///follow
-p_x = obj_actual_player.x;
-p_y = obj_actual_player.y;
+p_x = obj_another_player.x;
+p_y = obj_another_player.y;
 
 move_towards_point(p_x, p_y, 2);
 image_angle = point_direction(x, y, p_x, p_y);
@@ -78,8 +78,8 @@ image_angle = point_direction(x, y, p_x, p_y);
             <kind>1</kind>
             <string>///fire
 shot_CD -= 1;
-p_x = obj_actual_player.x;
-p_y = obj_actual_player.y;
+p_x = obj_another_player.x;
+p_y = obj_another_player.y;
 
 if (shot_CD &lt;= 0) {
     bullet = instance_create(x, y, obj_bullet);
@@ -94,7 +94,7 @@ if (shot_CD &lt;= 0) {
     shot_CD = 40;
 }
 
-if(health = 0) {
+if(health &lt;= 0) {
     instance_destroy();
 }
 </string>

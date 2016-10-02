@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="Music">
+      <sound>sound\mus_lvl_1</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_smile</sprite>
     <sprite>sprites\spr_player</sprite>
@@ -31,7 +35,12 @@
     <object>objects\obj_score</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_slow_enemy</object>
+    <object>objects\obj_lvl_1</object>
+    <object>objects\obj_another_player</object>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\timeline0</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\rm_enemy_testing_lab</room>
     <room>rooms\rm_template_large</room>
