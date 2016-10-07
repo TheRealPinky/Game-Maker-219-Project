@@ -50,8 +50,13 @@ health = 3;
           <argument>
             <kind>1</kind>
             <string>cooldown -=1
+<<<<<<< HEAD
 p_x = obj_another_player.x; //creates variable for the player object's name
 p_y = obj_another_player.y;
+=======
+p_x = obj_player.x; //creates variable for the player object's name
+p_y = obj_player.y;
+>>>>>>> origin/master
 
 if (cooldown &lt;= 0)
 {

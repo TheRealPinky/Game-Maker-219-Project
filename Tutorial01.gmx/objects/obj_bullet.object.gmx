@@ -128,7 +128,7 @@ move_bounce_all(true);
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_actual_player">
+    <event eventtype="4" ename="obj_player">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -145,10 +145,10 @@ move_bounce_all(true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (obj_actual_player.iframes &lt;= 0)
+            <string>if (obj_player.iframes &lt;= 0)
 {
-    obj_actual_player.iframes = 15;
-    obj_actual_player.player_health -= 1;
+    obj_player.iframes = 15;
+    obj_player.player_health -= 1;
 }
 </string>
           </argument>
