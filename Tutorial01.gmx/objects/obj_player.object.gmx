@@ -8,6 +8,53 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>player_health = 6;
+bullet_cooldown = 0;
+iframes = 0; //sets up the code to make the player briefly invincible when hit.
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>fast_clock = 0;
+broken_pencil = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,39 +72,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = max(speed - 0.01, 0)// max puts in the biggest number between the anything put in.
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_wall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Bouncing Code
+            <string>iframes -= 1;
+bullet_cooldown -=1;
+if (player_health &lt;= 0)
+{
+    
 
-move_bounce_all(true);
-speed = 1.8;
+    game_end(); //closes the game when the player dies
+}
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="5" enumb="39">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -74,40 +100,68 @@ speed = 1.8;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle -= 2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="38">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Adding motion
-motion_add(image_angle, 0.15);
-if(speed &gt; 4){
-    speed = 4;
+            <string>hori = keyboard_check(ord('D')) - keyboard_check(ord('A'));
+vert = keyboard_check(ord('S')) - keyboard_check(ord('W'));
+
+
+
+if (hori == 0 &amp;&amp; vert == 0) {
+    speed = 0;
+} else {
+    direction = point_direction(0, 0, hori, vert);
+    image_angle = direction;
+    speed = 5;
+}
+
+if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0)
+{
+bullet_cooldown = 15;
+bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+// example use, bullet.x = 5;
+bullet.direction = 180;
+bullet.image_angle = 180;
+bullet.speed = 15;
+bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_right)&amp;&amp; bullet_cooldown &lt;=0)
+{
+bullet_cooldown = 15;
+bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+// example use, bullet.x = 5;
+bullet.direction = 0;
+bullet.image_angle = 0;
+bullet.speed = 15;
+bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_up)&amp;&amp; bullet_cooldown &lt;=0)
+{
+bullet_cooldown = 15;
+bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+// example use, bullet.x = 5;
+bullet.direction = 90;
+bullet.image_angle = 90;
+bullet.speed = 15;
+bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_down)&amp;&amp; bullet_cooldown &lt;=0)
+{
+bullet_cooldown = 15;
+bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+// example use, bullet.x = 5;
+bullet.direction = 270;
+bullet.image_angle = 270;
+bullet.speed = 15;
+bullet.alignment = 1;
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="37">
+    <event eventtype="5" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -124,35 +178,58 @@ if(speed &gt; 4){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle += 2;
+            <string>/*if (keyboard_check(ord('A')) &amp;&amp; keyboard_check(ord('S')))
+{
+    direction=225;
+    speed=5;
+}
+
+else if (keyboard_check(ord('A')) &amp;&amp; keyboard_check(ord('W')))
+{
+    direction=135;
+    speed=5;
+}
+
+else if (keyboard_check(ord('D')) &amp;&amp; keyboard_check(ord('W')))
+{
+    direction=45;
+    speed=5;
+}
+
+else if (keyboard_check(ord('D')) &amp;&amp; keyboard_check(ord('S')))
+{
+    direction=315;
+    speed=5;
+}
+
+else if (keyboard_check(ord('A')))
+{
+    direction=180;
+    speed=5;
+}
+
+else if (keyboard_check(ord('D')))
+{
+    direction=0;
+    speed=5;
+}
+
+else if (keyboard_check(ord('W')))
+{
+    direction=90;
+    speed=5;
+}
+
+else if (keyboard_check(ord('S')))
+{
+    direction=270;
+    speed=5;
+}*/
+
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>112</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_wrap</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>4</kind>
-            <string>2</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -169,12 +246,49 @@ if(speed &gt; 4){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//instance_create(x, y, obj_bullet); // creates bullet.
+            <string>/*if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0)
+{
+bullet_cooldown = 15;
 bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
 // example use, bullet.x = 5;
-bullet.direction = image_angle;
-bullet.image_angle = image_angle;
+bullet.direction = 180;
+bullet.image_angle = 180;
 bullet.speed = 15;
+bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_right)&amp;&amp; bullet_cooldown &lt;=0)
+{
+bullet_cooldown = 15;
+bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+// example use, bullet.x = 5;
+bullet.direction = 0;
+bullet.image_angle = 0;
+bullet.speed = 15;
+bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_up)&amp;&amp; bullet_cooldown &lt;=0)
+{
+bullet_cooldown = 15;
+bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+// example use, bullet.x = 5;
+bullet.direction = 90;
+bullet.image_angle = 90;
+bullet.speed = 15;
+bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_down)&amp;&amp; bullet_cooldown &lt;=0)
+{
+bullet_cooldown = 15;
+bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+// example use, bullet.x = 5;
+bullet.direction = 270;
+bullet.image_angle = 270;
+bullet.speed = 15;
+bullet.alignment = 1;
+}*/
 </string>
           </argument>
         </arguments>

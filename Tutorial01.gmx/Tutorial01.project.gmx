@@ -13,26 +13,27 @@
     <sprite>sprites\spr_asteroid_s</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_enemy_1</sprite>
+    <sprite>sprites\spr_slow_enemy</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
+    <background>background\bg_floor1bg</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\obj_smile</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_actual_player</object>
     <object>objects\obj_enemy_1</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_asteroid</object>
-    <object>objects\object8</object>
     <object>objects\obj_asteroid_s</object>
     <object>objects\obj_score</object>
     <object>objects\obj_wall</object>
+    <object>objects\obj_slow_enemy</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_template_floor1</room>
     <room>rooms\rm_enemy_testing_lab</room>
-    <room>rooms\rm_template_large</room>
     <room>rooms\rm_TEMPLATE</room>
     <room>rooms\rm_asteroids</room>
     <room>rooms\Test</room>
