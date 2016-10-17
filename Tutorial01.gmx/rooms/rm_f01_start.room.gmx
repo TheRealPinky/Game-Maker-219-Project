@@ -183,6 +183,7 @@
     <instance objName="obj_room_transition_object" x="992" y="448" name="inst_93BEFD05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_room_transition_object" x="992" y="448" name="inst_09BD933E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_room_transition_object" x="992" y="480" name="inst_EB270E9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_gameinitializer" x="64" y="128" name="inst_6817717D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

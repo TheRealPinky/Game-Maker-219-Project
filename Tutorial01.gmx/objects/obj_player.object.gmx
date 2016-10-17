@@ -25,55 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player_health = 6;
-bullet_cooldown = 0;
+            <string>bullet_cooldown = 0;
 iframes = 0; //sets up the code to make the player briefly invincible when hit.
-global.enemies_in_room = 0;
-global.floor1_rooms_left = (random_range(7,9));
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>fast_clock = 0;
-broken_pencil = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Set Procedural Generation
-randomize();
 </string>
           </argument>
         </arguments>
@@ -99,7 +52,7 @@ randomize();
             <string>///Player Variables
 iframes -= 1;
 bullet_cooldown -=1;
-if (player_health &lt;= 0)
+if (global.player_health &lt;= 0)
 {
     
 
@@ -135,7 +88,7 @@ if (hori == 0 &amp;&amp; vert == 0) {
     speed = 0;
 } else {
     direction = point_direction(0, 0, hori, vert);
-    image_angle = direction;
+    //image_angle = direction;
     speed = 5;
 }
 
@@ -146,6 +99,7 @@ bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet wit
 // example use, bullet.x = 5;
 bullet.direction = 180;
 bullet.image_angle = 180;
+image_angle = bullet.image_angle;
 bullet.speed = 15;
 bullet.alignment = 1;
 }
@@ -157,6 +111,7 @@ bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet wit
 // example use, bullet.x = 5;
 bullet.direction = 0;
 bullet.image_angle = 0;
+image_angle = bullet.image_angle;
 bullet.speed = 15;
 bullet.alignment = 1;
 }
@@ -168,6 +123,7 @@ bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet wit
 // example use, bullet.x = 5;
 bullet.direction = 90;
 bullet.image_angle = 90;
+image_angle = bullet.image_angle;
 bullet.speed = 15;
 bullet.alignment = 1;
 }
@@ -179,6 +135,7 @@ bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet wit
 // example use, bullet.x = 5;
 bullet.direction = 270;
 bullet.image_angle = 270;
+image_angle = bullet.image_angle;
 bullet.speed = 15;
 bullet.alignment = 1;
 }
@@ -273,7 +230,9 @@ else if (keyboard_check(ord('S')))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0)
+            <string>///old directional firing
+
+/*if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0)
 {
 bullet_cooldown = 15;
 bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address

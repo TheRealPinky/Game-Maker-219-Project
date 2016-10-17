@@ -188,6 +188,8 @@
     <instance objName="obj_room_transition_object" x="992" y="384" name="inst_E3A55C85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slow_enemy" x="640" y="224" name="inst_9D128EAB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_slow_enemy" x="640" y="608" name="inst_7D1D2A2A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_firewall" x="960" y="512" name="inst_860C40E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_firewall" x="960" y="352" name="inst_B14FCD42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

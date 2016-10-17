@@ -160,7 +160,7 @@ alignment = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_enemy_1">
+    <event eventtype="4" ename="obj_trishot">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -207,7 +207,7 @@ instance_destroy();
             <string>if (obj_player.iframes &lt;= 0 &amp;&amp; alignment != 1)
 {
     obj_player.iframes = 15;
-    obj_player.player_health -= 1;
+    global.player_health -= 1;
     instance_destroy();
 }
 </string>
