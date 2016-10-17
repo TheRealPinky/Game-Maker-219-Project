@@ -14,6 +14,8 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_enemy_1</sprite>
     <sprite>sprites\spr_slow_enemy</sprite>
+    <sprite>sprites\room_transition</sprite>
+    <sprite>sprites\spr_firewall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
@@ -29,9 +31,14 @@
     <object>objects\obj_asteroid_s</object>
     <object>objects\obj_score</object>
     <object>objects\obj_wall</object>
+    <object>objects\obj_firewall</object>
     <object>objects\obj_slow_enemy</object>
+    <object>objects\obj_room_transition_object</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_f01_start</room>
+    <room>rooms\rm_f01_01</room>
+    <room>rooms\rm_f01_02</room>
     <room>rooms\rm_template_floor1</room>
     <room>rooms\rm_enemy_testing_lab</room>
     <room>rooms\rm_TEMPLATE</room>
