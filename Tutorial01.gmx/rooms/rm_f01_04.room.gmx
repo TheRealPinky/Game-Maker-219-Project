@@ -186,9 +186,9 @@
     <instance objName="obj_room_transition_object" x="992" y="448" name="inst_385BB2DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_room_transition_object" x="992" y="416" name="inst_0784F01E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_room_transition_object" x="992" y="384" name="inst_E3A55C85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trishot" x="832" y="160" name="inst_121EFEC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trishot" x="832" y="416" name="inst_35CA7408" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_trishot" x="832" y="672" name="inst_B039C71A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tri_shot" x="832" y="160" name="inst_121EFEC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tri_shot" x="832" y="416" name="inst_35CA7408" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_tri_shot" x="832" y="672" name="inst_B039C71A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_firewall" x="960" y="352" name="inst_F214810C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_firewall" x="960" y="512" name="inst_7AB64871" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>

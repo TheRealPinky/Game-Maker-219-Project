@@ -160,7 +160,7 @@ alignment = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_trishot">
+    <event eventtype="4" ename="obj_tri_shot">
       <action>
         <libid>1</libid>
         <id>603</id>
