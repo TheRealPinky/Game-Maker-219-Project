@@ -13,15 +13,21 @@
     <sprite>sprites\spr_asteroid_s</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_enemy_1</sprite>
-    <sprite>sprites\spr_slow_enemy</sprite>
+    <sprite>sprites\spr_tri_shot</sprite>
     <sprite>sprites\room_transition</sprite>
     <sprite>sprites\spr_firewall</sprite>
+    <sprite>sprites\spr_full_crystal</sprite>
+    <sprite>sprites\spr_half_crystal</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
     <background>background\bg_floor1bg</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\GetKeyPress.gml</script>
+    <script>scripts\Shooting.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_smile</object>
     <object>objects\obj_player</object>
@@ -30,11 +36,16 @@
     <object>objects\obj_asteroid</object>
     <object>objects\obj_asteroid_s</object>
     <object>objects\obj_score</object>
-    <object>objects\obj_wall</object>
-    <object>objects\obj_firewall</object>
     <object>objects\obj_slow_enemy</object>
     <object>objects\obj_room_transition_object</object>
     <object>objects\obj_gameinitializer</object>
+    <objects name="Environment">
+      <object>objects\obj_environment</object>
+      <object>objects\obj_firewall</object>
+      <object>objects\obj_wall</object>
+    </objects>
+    <object>objects\obj_full_crystal</object>
+    <object>objects\obj_half_crystal</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_f01_start</room>

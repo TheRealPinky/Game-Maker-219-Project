@@ -25,8 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bullet_cooldown = 0;
+            <string>///Initialization
+bullet_cooldown = 0;
 iframes = 0; //sets up the code to make the player briefly invincible when hit.
+draw_check = 1
 </string>
           </argument>
         </arguments>
@@ -52,6 +54,8 @@ iframes = 0; //sets up the code to make the player briefly invincible when hit.
             <string>///Player Variables
 iframes -= 1;
 bullet_cooldown -=1;
+spd = 1; //speed
+
 if (global.player_health &lt;= 0)
 {
     
@@ -79,66 +83,136 @@ if (global.player_health &lt;= 0)
           <argument>
             <kind>1</kind>
             <string>///Move + Shoot
-hori = keyboard_check(ord('D')) - keyboard_check(ord('A'));
-vert = keyboard_check(ord('S')) - keyboard_check(ord('W'));
+script_execute(GetKeyPress); //===My own script, check it.
+hsp = d_key - a_key;
+vsp = s_key - w_key;
 
 
-
-if (hori == 0 &amp;&amp; vert == 0) {
-    speed = 0;
+//===Sets speed and direction
+if (hsp == 0 &amp;&amp; vsp == 0) {
+    spd = 0;
 } else {
-    direction = point_direction(0, 0, hori, vert);
+    direction = point_direction(0, 0, hsp, vsp);
     //image_angle = direction;
-    speed = 5;
+    spd = 5;
+    hsp += spd*sign(hsp);
+    vsp += spd*sign(vsp);
 }
 
-if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0)
-{
-bullet_cooldown = 15;
-bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
-// example use, bullet.x = 5;
-bullet.direction = 180;
-bullet.image_angle = 180;
-image_angle = bullet.image_angle;
-bullet.speed = 15;
-bullet.alignment = 1;
+//===Applies collision, and speed
+//===Horizontal collision
+if(place_meeting(x+hsp, y, obj_environment)) { 
+    while(!place_meeting(x+sign(hsp), y, obj_environment)){
+        x  += sign(hsp);
+    }
+    hsp = 0;
+}
+x += hsp;
+
+//===Vertical collision
+//===Cool stuff I guess, for some reason sign is like absolute value, it will give 0, 1, or -1
+if(place_meeting(x, y+vsp, obj_environment)) { 
+    while(!place_meeting(x, y+sign(vsp), obj_environment)){
+        y  += sign(vsp);
+    }
+    vsp = 0;
+}
+y += vsp;
+
+//===Shooting code.
+if(left_key + right_key + up_key + down_key &gt;= 1) {// if any one of those buttons is pressed.
+    script_execute(Shooting);
 }
 
-if (keyboard_check(vk_right)&amp;&amp; bullet_cooldown &lt;=0)
-{
-bullet_cooldown = 15;
-bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
-// example use, bullet.x = 5;
-bullet.direction = 0;
-bullet.image_angle = 0;
-image_angle = bullet.image_angle;
-bullet.speed = 15;
-bullet.alignment = 1;
+/* your stuff Yanni.
+if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0) {
+    bullet_cooldown = 15;
+    bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+    // example use, bullet.x = 5;
+    bullet.direction = 180;
+    bullet.image_angle = 180;
+    image_angle = bullet.image_angle;
+    bullet.speed = 15;
+    bullet.alignment = 1;
 }
 
-if (keyboard_check(vk_up)&amp;&amp; bullet_cooldown &lt;=0)
-{
-bullet_cooldown = 15;
-bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
-// example use, bullet.x = 5;
-bullet.direction = 90;
-bullet.image_angle = 90;
-image_angle = bullet.image_angle;
-bullet.speed = 15;
-bullet.alignment = 1;
+if (keyboard_check(vk_right)&amp;&amp; bullet_cooldown &lt;=0) {
+    bullet_cooldown = 15;
+    bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+    // example use, bullet.x = 5;
+    bullet.direction = 0;
+    bullet.image_angle = 0;
+    image_angle = bullet.image_angle;
+    bullet.speed = 15;
+    bullet.alignment = 1;
 }
 
-if (keyboard_check(vk_down)&amp;&amp; bullet_cooldown &lt;=0)
-{
-bullet_cooldown = 15;
-bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
-// example use, bullet.x = 5;
-bullet.direction = 270;
-bullet.image_angle = 270;
-image_angle = bullet.image_angle;
-bullet.speed = 15;
-bullet.alignment = 1;
+if (keyboard_check(vk_up)&amp;&amp; bullet_cooldown &lt;=0) {
+    bullet_cooldown = 15;
+    bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+    // example use, bullet.x = 5;
+    bullet.direction = 90;
+    bullet.image_angle = 90;
+    image_angle = bullet.image_angle;
+    bullet.speed = 15;
+    bullet.alignment = 1;
 }
+
+if (keyboard_check(vk_down)&amp;&amp; bullet_cooldown &lt;=0) {
+    bullet_cooldown = 15;
+    bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+    // example use, bullet.x = 5;
+    bullet.direction = 270;
+    bullet.image_angle = 270;
+    image_angle = bullet.image_angle;
+    bullet.speed = 15;
+    bullet.alignment = 1;
+}
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Health Draw
+if (draw_check = 1)
+    {
+    health_tracker = global.player_health;
+    with (obj_full_crystal)
+        {
+        instance_destroy();
+        }
+    with (obj_half_crystal)
+        {
+        instance_destroy();
+        }
+    position_tracker = 1;
+    while (health_tracker &gt; 1)
+        { 
+        instance_create (position_tracker * 32, 32, obj_full_crystal);
+        position_tracker ++;
+        health_tracker -= 2;
+        }
+    if (health_tracker = 1)
+        {
+        instance_create (position_tracker * 32, 32, obj_half_crystal);
+        }
+    }
 </string>
           </argument>
         </arguments>
