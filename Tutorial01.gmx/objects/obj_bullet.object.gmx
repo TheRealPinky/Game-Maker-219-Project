@@ -55,7 +55,7 @@ alignment = 2; //sets who bullets can damage. 0 is anyone, 1 is enemies, 2 is pl
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_slow_enemy">
+    <event eventtype="4" ename="obj_wall">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -72,11 +72,10 @@ alignment = 2; //sets who bullets can damage. 0 is anyone, 1 is enemies, 2 is pl
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alignment != 2)
-{
-other.hp -= 1;
-instance_destroy();
-}
+            <string>///Bounce code
+
+move_bounce_all(true);
+alignment = 0;
 </string>
           </argument>
         </arguments>
@@ -108,7 +107,7 @@ alignment = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_wall">
+    <event eventtype="4" ename="obj_slow_enemy">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -125,10 +124,11 @@ alignment = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Bounce code
-
-move_bounce_all(true);
-alignment = 0;
+            <string>if (alignment != 2)
+{
+other.hp -= 1;
+instance_destroy();
+}
 </string>
           </argument>
         </arguments>

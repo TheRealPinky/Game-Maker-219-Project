@@ -80,7 +80,7 @@ if (global.player_health &lt;= 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>a///Move + Shoot
+            <string>///Move + Shoot
 script_execute(GetKeyPress); //===My own script, check it.
 hsp = d_key - a_key;
 vsp = s_key - w_key;
