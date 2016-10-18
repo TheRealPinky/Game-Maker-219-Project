@@ -26,9 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>if (global.enemies_in_room &lt;= 0)
-{
+    {
+    target_x = obj_firewall.x;
+    target_y = obj_firewall.y;
     instance_destroy(); //checks if all enemies are dead, and deletes the firewall if so.
-}
+    instance_create(target_x, target_y, obj_room_transition_object);
+    }
 </string>
           </argument>
         </arguments>
