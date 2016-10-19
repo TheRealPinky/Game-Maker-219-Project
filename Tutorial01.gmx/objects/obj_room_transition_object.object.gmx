@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>if (global.floor1_rooms_left &gt;= 2)
 {
-floor1_gen = random_range(1, 8); // Sends the player to a randomly chosen room on the same floor.
+floor1_gen = random_range(1, 13); // Sends the player to a randomly chosen room on the same floor.
 round(floor1_gen);
 room_goto (floor1_gen);
 global.floor1_rooms_left -= 1;

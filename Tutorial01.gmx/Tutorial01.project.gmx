@@ -18,6 +18,7 @@
     <sprite>sprites\spr_firewall</sprite>
     <sprite>sprites\spr_full_crystal</sprite>
     <sprite>sprites\spr_half_crystal</sprite>
+    <sprite>sprites\spr_viewport_protector</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
@@ -46,6 +47,7 @@
     </objects>
     <object>objects\obj_full_crystal</object>
     <object>objects\obj_half_crystal</object>
+    <object>objects\obj_viewport_protector_boss</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_f01_start</room>
@@ -56,6 +58,11 @@
     <room>rooms\rm_f01_05</room>
     <room>rooms\rm_f01_06</room>
     <room>rooms\rm_f01_07</room>
+    <room>rooms\rm_f01_08</room>
+    <room>rooms\rm_f01_09</room>
+    <room>rooms\rm_f01_10</room>
+    <room>rooms\rm_f01_11</room>
+    <room>rooms\rm_f01_12</room>
     <room>rooms\rm_f01_boss1</room>
     <room>rooms\rm_template_floor1</room>
     <room>rooms\rm_enemy_testing_lab</room>

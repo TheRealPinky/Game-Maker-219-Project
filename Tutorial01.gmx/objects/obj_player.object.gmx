@@ -28,7 +28,7 @@
             <string>///Initialization
 bullet_cooldown = 0;
 iframes = 0; //sets up the code to make the player briefly invincible when hit.
-draw_check = 1
+draw_check = 1;
 </string>
           </argument>
         </arguments>
