@@ -8,12 +8,16 @@ if(bullet_cooldown <=0 && (xdir != 0 || ydir != 0)) {
     bullet_cooldown = 15;
     if (xdir = 1) {
         dir = -sign(vsp) * offset;
+        obj_player.image_angle = 0;
     } else if (xdir = -1) {
         dir = sign(vsp) * offset + 180;
+        obj_player.image_angle = 180;
     } else if (ydir = -1) {
         dir = -sign(hsp) * offset + 90;
+        obj_player.image_angle = 90;
     } else if (ydir = 1) {
         dir = sign(hsp) * offset + 270;
+        obj_player.image_angle = 270;
     }
     bullet.direction = dir; 
     bullet.speed = 15;
