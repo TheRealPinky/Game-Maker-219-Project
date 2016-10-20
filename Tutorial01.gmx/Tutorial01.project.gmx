@@ -28,6 +28,7 @@
   <scripts name="scripts">
     <script>scripts\GetKeyPress.gml</script>
     <script>scripts\Shooting.gml</script>
+    <script>scripts\Collision.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_smile</object>
