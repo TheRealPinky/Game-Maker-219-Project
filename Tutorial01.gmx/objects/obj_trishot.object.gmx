@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_enemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -74,7 +74,7 @@ bullet3.direction = point_direction(obj_trishot.x, obj_trishot.y, p_x, p_y);
 bullet3.direction -=30;
 bullet3.image_angle = bullet3.direction;
 bullet3.speed = 4;
-cooldown = 30
+cooldown = 60;
 }
 
 

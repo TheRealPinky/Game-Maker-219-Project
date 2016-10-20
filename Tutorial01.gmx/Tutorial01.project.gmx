@@ -32,12 +32,10 @@
   <objects name="objects">
     <object>objects\obj_smile</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_trishot</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_asteroid</object>
     <object>objects\obj_asteroid_s</object>
     <object>objects\obj_score</object>
-    <object>objects\obj_slow_enemy</object>
     <object>objects\obj_room_transition_object</object>
     <object>objects\obj_gameinitializer</object>
     <objects name="Environment">
@@ -47,10 +45,16 @@
     </objects>
     <object>objects\obj_full_crystal</object>
     <object>objects\obj_half_crystal</object>
-    <object>objects\obj_viewport_protector_boss</object>
+    <objects name="enemy">
+      <object>objects\obj_viewport_protector_boss</object>
+      <object>objects\obj_slow_enemy</object>
+      <object>objects\obj_trishot</object>
+      <object>objects\obj_enemy</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_f01_start</room>
+    <room>rooms\rm_f01_boss1</room>
     <room>rooms\rm_f01_01</room>
     <room>rooms\rm_f01_02</room>
     <room>rooms\rm_f01_03</room>
@@ -63,7 +67,6 @@
     <room>rooms\rm_f01_10</room>
     <room>rooms\rm_f01_11</room>
     <room>rooms\rm_f01_12</room>
-    <room>rooms\rm_f01_boss1</room>
     <room>rooms\rm_template_floor1</room>
     <room>rooms\rm_enemy_testing_lab</room>
     <room>rooms\rm_TEMPLATE</room>

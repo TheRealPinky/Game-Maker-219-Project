@@ -56,7 +56,12 @@ iframes -= 1;
 bullet_cooldown -=1;
 spd = 1; //speed
 
+<<<<<<< HEAD
 if (global.player_health &lt;= 0) {
+=======
+if (global.player_health &lt;= 0)
+{
+>>>>>>> origin/temp_master
     game_end(); //closes the game when the player dies
 }
 </string>
@@ -96,25 +101,7 @@ if (hsp == 0 &amp;&amp; vsp == 0) {
     vsp += spd*sign(vsp);
 }
 
-//===Applies collision, and speed
-//===Horizontal collision
-if(place_meeting(x+hsp, y, obj_environment)) { 
-    while(!place_meeting(x+sign(hsp), y, obj_environment)){
-        x  += sign(hsp);
-    }
-    hsp = 0;
-}
-x += hsp;
 
-//===Vertical collision
-//===Cool stuff I guess, for some reason sign is like absolute value, it will give 0, 1, or -1
-if(place_meeting(x, y+vsp, obj_environment)) { 
-    while(!place_meeting(x, y+sign(vsp), obj_environment)){
-        y  += sign(vsp);
-    }
-    vsp = 0;
-}
-y += vsp;
 
 //===Shooting code.
 if(left_key + right_key + up_key + down_key &gt;= 1) {// if any one of those buttons is pressed.
@@ -210,6 +197,79 @@ if (draw_check = 1)
         instance_create (position_tracker * 32, 32, obj_half_crystal);
         }
     }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision Checking
+
+//===Applies collision, and speed
+
+//Environment Collision
+
+//===Horizontal collision
+if(place_meeting(x+hsp, y, obj_environment)) 
+    { 
+    while(!place_meeting(x+sign(hsp), y, obj_environment))
+        {
+        x  += sign(hsp);
+        }
+    hsp = 0;
+    }
+x += hsp;
+
+//===Vertical collision
+//===Cool stuff I guess, for some reason sign is like absolute value, it will give 0, 1, or -1
+if(place_meeting(x, y+vsp, obj_environment)) 
+    { 
+    while(!place_meeting(x, y+sign(vsp), obj_environment))
+        {
+        y  += sign(vsp);
+        }
+    vsp = 0;
+    }
+y += vsp;
+
+//Enemy Collision
+
+//Horizontal Collision
+if(place_meeting(x+hsp, y, obj_enemy)) 
+    { 
+    while(!place_meeting(x+sign(hsp), y, obj_enemy))
+        {
+        x  += sign(hsp);
+        }
+    hsp = 0;
+    }
+
+
+//===Vertical collision
+//===Cool stuff I guess, for some reason sign is like absolute value, it will give 0, 1, or -1
+if(place_meeting(x, y+vsp, obj_enemy)) 
+    { 
+    while(!place_meeting(x, y+sign(vsp), obj_enemy))
+        {
+        y  += sign(vsp);
+        }
+    vsp = 0;
+    }
+
 </string>
           </argument>
         </arguments>
