@@ -25,31 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player_health = 6;
+            <string>///Initialization
 bullet_cooldown = 0;
 iframes = 0; //sets up the code to make the player briefly invincible when hit.
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>fast_clock = 0;
-broken_pencil = 0;
+draw_check = 1;
 </string>
           </argument>
         </arguments>
@@ -72,14 +51,221 @@ broken_pencil = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>iframes -= 1;
+            <string>///Player Variables
+iframes -= 1;
 bullet_cooldown -=1;
-if (player_health &lt;= 0)
-{
-    
+spd = 1; //speed
 
+if (global.player_health &lt;= 0)
+{
     game_end(); //closes the game when the player dies
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Move + Shoot
+script_execute(GetKeyPress); //===My own script, check it.
+hsp = d_key - a_key;
+vsp = s_key - w_key;
+
+
+//===Sets speed and direction
+if (hsp == 0 &amp;&amp; vsp == 0) {
+    spd = 0;
+} else {
+    direction = point_direction(0, 0, hsp, vsp);
+    //image_angle = direction;
+    spd = 5;
+    hsp += spd*sign(hsp);
+    vsp += spd*sign(vsp);
+}
+
+
+
+//===Shooting code.
+if(left_key + right_key + up_key + down_key &gt;= 1) {// if any one of those buttons is pressed.
+    script_execute(Shooting);
+}
+
+/* your stuff Yanni.
+if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0) {
+    bullet_cooldown = 15;
+    bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+    // example use, bullet.x = 5;
+    bullet.direction = 180;
+    bullet.image_angle = 180;
+    image_angle = bullet.image_angle;
+    bullet.speed = 15;
+    bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_right)&amp;&amp; bullet_cooldown &lt;=0) {
+    bullet_cooldown = 15;
+    bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+    // example use, bullet.x = 5;
+    bullet.direction = 0;
+    bullet.image_angle = 0;
+    image_angle = bullet.image_angle;
+    bullet.speed = 15;
+    bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_up)&amp;&amp; bullet_cooldown &lt;=0) {
+    bullet_cooldown = 15;
+    bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+    // example use, bullet.x = 5;
+    bullet.direction = 90;
+    bullet.image_angle = 90;
+    image_angle = bullet.image_angle;
+    bullet.speed = 15;
+    bullet.alignment = 1;
+}
+
+if (keyboard_check(vk_down)&amp;&amp; bullet_cooldown &lt;=0) {
+    bullet_cooldown = 15;
+    bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
+    // example use, bullet.x = 5;
+    bullet.direction = 270;
+    bullet.image_angle = 270;
+    image_angle = bullet.image_angle;
+    bullet.speed = 15;
+    bullet.alignment = 1;
+}
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Health Draw
+if (draw_check = 1)
+    {
+    health_tracker = global.player_health;
+    with (obj_full_crystal)
+        {
+        instance_destroy();
+        }
+    with (obj_half_crystal)
+        {
+        instance_destroy();
+        }
+    position_tracker = 1;
+    while (health_tracker &gt; 1)
+        { 
+        instance_create (position_tracker * 32, 32, obj_full_crystal);
+        position_tracker ++;
+        health_tracker -= 2;
+        }
+    if (health_tracker = 1)
+        {
+        instance_create (position_tracker * 32, 32, obj_half_crystal);
+        }
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision Checking
+
+//===Applies collision, and speed
+
+//Environment Collision
+
+//===Horizontal collision
+if(place_meeting(x+hsp, y, obj_environment)) 
+    { 
+    while(!place_meeting(x+sign(hsp), y, obj_environment))
+        {
+        x  += sign(hsp);
+        }
+    hsp = 0;
+    }
+x += hsp;
+
+//===Vertical collision
+//===Cool stuff I guess, for some reason sign is like absolute value, it will give 0, 1, or -1
+if(place_meeting(x, y+vsp, obj_environment)) 
+    { 
+    while(!place_meeting(x, y+sign(vsp), obj_environment))
+        {
+        y  += sign(vsp);
+        }
+    vsp = 0;
+    }
+y += vsp;
+
+//Enemy Collision
+
+//Horizontal Collision
+if(place_meeting(x+hsp, y, obj_enemy)) 
+    { 
+    while(!place_meeting(x+sign(hsp), y, obj_enemy))
+        {
+        x  += sign(hsp);
+        }
+    hsp = 0;
+    }
+
+
+//===Vertical collision
+//===Cool stuff I guess, for some reason sign is like absolute value, it will give 0, 1, or -1
+if(place_meeting(x, y+vsp, obj_enemy)) 
+    { 
+    while(!place_meeting(x, y+sign(vsp), obj_enemy))
+        {
+        y  += sign(vsp);
+        }
+    vsp = 0;
+    }
+
 </string>
           </argument>
         </arguments>
@@ -102,7 +288,8 @@ if (player_health &lt;= 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check(ord('A')) &amp;&amp; keyboard_check(ord('S')))
+            <string>///old movement
+/*if (keyboard_check(ord('A')) &amp;&amp; keyboard_check(ord('S')))
 {
     direction=225;
     speed=5;
@@ -148,7 +335,7 @@ else if (keyboard_check(ord('S')))
 {
     direction=270;
     speed=5;
-}
+}*/
 
 </string>
           </argument>
@@ -170,7 +357,9 @@ else if (keyboard_check(ord('S')))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0)
+            <string>///old directional firing
+
+/*if (keyboard_check(vk_left) &amp;&amp; bullet_cooldown &lt;=0)
 {
 bullet_cooldown = 15;
 bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet with address
@@ -178,6 +367,7 @@ bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet wit
 bullet.direction = 180;
 bullet.image_angle = 180;
 bullet.speed = 15;
+bullet.alignment = 1;
 }
 
 if (keyboard_check(vk_right)&amp;&amp; bullet_cooldown &lt;=0)
@@ -188,6 +378,7 @@ bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet wit
 bullet.direction = 0;
 bullet.image_angle = 0;
 bullet.speed = 15;
+bullet.alignment = 1;
 }
 
 if (keyboard_check(vk_up)&amp;&amp; bullet_cooldown &lt;=0)
@@ -198,6 +389,7 @@ bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet wit
 bullet.direction = 90;
 bullet.image_angle = 90;
 bullet.speed = 15;
+bullet.alignment = 1;
 }
 
 if (keyboard_check(vk_down)&amp;&amp; bullet_cooldown &lt;=0)
@@ -208,50 +400,9 @@ bullet = instance_create(x, y, obj_bullet); // creates an instance of bullet wit
 bullet.direction = 270;
 bullet.image_angle = 270;
 bullet.speed = 15;
-}
+bullet.alignment = 1;
+}*/
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>103</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_hspeed</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>104</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_set_vspeed</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>0</string>
           </argument>
         </arguments>
       </action>
