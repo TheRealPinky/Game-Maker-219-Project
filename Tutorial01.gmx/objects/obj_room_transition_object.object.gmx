@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>if (global.floor1_rooms_left &gt;= 2)
 {
-floor1_gen = random_range(1, 13); // Sends the player to a randomly chosen room on the same floor.
+floor1_gen = random_range(2, 14); // Sends the player to a randomly chosen room on the same floor.
 round(floor1_gen);
 room_goto (floor1_gen);
 global.floor1_rooms_left -= 1;
@@ -35,7 +35,7 @@ global.floor1_rooms_left -= 1;
 
 if (global.floor1_rooms_left = 1)
 {
-room_goto (8); // Sends the player to the boss room. [UPDATE WHENEVER WE CHANGE THE POSITION OF THE BOSS ROOM]
+room_goto (1); // Sends the player to the boss room. [UPDATE WHENEVER WE CHANGE THE POSITION OF THE BOSS ROOM]
 global.floor1_rooms_left = -1;
 }
 </string>
