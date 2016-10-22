@@ -1,0 +1,8 @@
+///Hit Player
+
+if (obj_player.iframes <= 0)
+    {
+    obj_player.iframes = 15;
+    global.player_health -= 1;
+    obj_player.draw_check = 1;
+    }

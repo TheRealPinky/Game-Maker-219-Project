@@ -1,0 +1,7 @@
+///Shot Enemy
+
+if (alignment != 2)
+{
+other.hp -= 1;
+instance_destroy();
+}

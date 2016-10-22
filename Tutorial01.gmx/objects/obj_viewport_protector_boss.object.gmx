@@ -30,7 +30,7 @@
 hp = 50;
 chargetime = 60; //How long it takes the boss to charge its ramming attack
 ramming = 0; //Checks if the boss is charging at you
-
+global.enemies_in_room = 0;
 p_x = obj_player.x; //creates variable for the player object's name
 p_y = obj_player.y;
 target_x = p_x; // Sets where the boss moves to during a charge attack

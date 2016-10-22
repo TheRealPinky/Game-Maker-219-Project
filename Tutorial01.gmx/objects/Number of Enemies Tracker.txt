@@ -1,0 +1,2 @@
+///Number of Enemies Tracker
+global.enemies_in_room += 1;
