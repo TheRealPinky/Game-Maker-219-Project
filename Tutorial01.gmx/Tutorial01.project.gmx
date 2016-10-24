@@ -29,12 +29,17 @@
     <script>scripts\GetKeyPress.gml</script>
     <script>scripts\Shooting.gml</script>
     <script>scripts\Collision.gml</script>
+    <script>scripts\script3.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_cyber</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_bullet</object>
     <object>objects\obj_room_transition_object</object>
     <object>objects\obj_gameinitializer</object>
+    <object>objects\obj_f01_intro_text</object>
     <objects name="Environment">
       <object>objects\obj_environment</object>
       <object>objects\obj_firewall</object>
@@ -57,7 +62,6 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_enemy_testing_lab</room>
     <room>rooms\rm_f01_start</room>
     <room>rooms\rm_f01_boss1</room>
     <room>rooms\rm_f01_01</room>
@@ -74,6 +78,8 @@
     <room>rooms\rm_f01_12</room>
     <room>rooms\rm_template_floor1</room>
     <room>rooms\rm_TEMPLATE</room>
+    <room>rooms\rm_enemy_testing_lab</room>
+    <room>rooms\rm_f01_intro</room>
     <room>rooms\rm_asteroids</room>
     <room>rooms\Test</room>
     <room>rooms\rm_skyroom</room>
