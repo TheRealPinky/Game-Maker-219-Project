@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_getting_paid</sound>
+    <sound>sound\snd_challenger_start</sound>
+    <sound>sound\snd_challenger_loop</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_smile</sprite>
     <sprite>sprites\spr_player</sprite>
@@ -30,6 +34,7 @@
     <script>scripts\Shooting.gml</script>
     <script>scripts\Collision.gml</script>
     <script>scripts\script3.gml</script>
+    <script>scripts\musicChange.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_cyber</font>
@@ -60,6 +65,7 @@
       <object>objects\obj_score</object>
       <object>objects\obj_smile</object>
     </objects>
+    <object>objects\obj_music_control</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_f01_start</room>
