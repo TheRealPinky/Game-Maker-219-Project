@@ -29,6 +29,7 @@
 bullet_cooldown = 0;
 iframes = 0; //sets up the code to make the player briefly invincible when hit.
 draw_check = 1;
+angle_dir = 0;
 </string>
           </argument>
         </arguments>
@@ -283,6 +284,30 @@ bullet.image_angle = 270;
 bullet.speed = 15;
 bullet.alignment = 1;
 }*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite_ext(spr_player, 0, obj_player.x, obj_player.y,
+            image_xscale, image_yscale, angle_dir, c_white, image_alpha);
 </string>
           </argument>
         </arguments>
