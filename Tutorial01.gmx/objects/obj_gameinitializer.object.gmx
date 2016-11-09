@@ -28,6 +28,8 @@
             <string>///Globals
 global.enemies_in_room = 0;
 global.floor1_rooms_left = 8;
+global.can_change_floors = 0;
+global.floor_player_is_on = 1;
 //global.floor1_rooms_left = (random_range(7,9));
 </string>
           </argument>

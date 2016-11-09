@@ -66,10 +66,12 @@
       <object>objects\obj_smile</object>
     </objects>
     <object>objects\obj_music_control</object>
+    <object>objects\obj_floor_changer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_f01_start</room>
     <room>rooms\rm_f01_boss1</room>
+    <room>rooms\rm_f02_start</room>
     <room>rooms\rm_f01_01</room>
     <room>rooms\rm_f01_02</room>
     <room>rooms\rm_f01_03</room>

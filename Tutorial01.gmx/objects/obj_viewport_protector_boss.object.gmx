@@ -62,6 +62,7 @@ target_y = p_y;
 if (hp &lt;= 0)
     {
     instance_destroy();
+    global.can_change_floors = 1;
     }
 </string>
           </argument>
