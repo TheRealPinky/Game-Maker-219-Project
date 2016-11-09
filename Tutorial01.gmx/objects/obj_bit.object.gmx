@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Init
-hp = 2;
+hp = 200;
 </string>
           </argument>
         </arguments>
@@ -150,7 +150,7 @@ if (hp &lt;= 0)
 if (obj_player.iframes &lt;= 0)
     {
     obj_player.iframes = 15;
-    global.player_health -= 1;
+    global.player_health -= 100;
     obj_player.draw_check = 1;
     }
 </string>

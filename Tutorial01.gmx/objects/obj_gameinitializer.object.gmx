@@ -95,8 +95,11 @@ randomize();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Player Health Setter
-global.player_health = 6;
+            <string>///Player Stat Variables
+global.player_health = 600;
+global.player_attackcooldown = 30;
+global.player_damage = 100;
+global.player_movespeed = 5;
 </string>
           </argument>
         </arguments>

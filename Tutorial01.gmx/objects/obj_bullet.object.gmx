@@ -76,7 +76,7 @@ alignment = 2; //sets who bullets can damage. 0 is anyone, 1 is enemies, 2 is pl
 
 if (alignment != 2)
 {
-other.hp -= 1;
+other.hp -= global.player_damage;
 instance_destroy();
 }
 </string>
@@ -103,7 +103,7 @@ instance_destroy();
             <kind>1</kind>
             <string>if (alignment != 2)
 {
-other.hp -= 1;
+other.hp -= global.player_damage;
 instance_destroy();
 }
 </string>
@@ -130,7 +130,7 @@ instance_destroy();
             <kind>1</kind>
             <string>if (alignment != 2)
 {
-other.hp -= 1;
+other.hp -= global.player_damage;
 instance_destroy();
 }
 </string>
@@ -159,7 +159,7 @@ instance_destroy();
 
 if (alignment != 2)
 {
-other.hp -= 1;
+other.hp -= global.player_damage;
 instance_destroy();
 }
 </string>
@@ -236,10 +236,10 @@ alignment = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (immortality &lt;= 0)
+            <string>/*if (immortality &lt;= 0)
 {
     instance_destroy();
-}
+}*/
 </string>
           </argument>
         </arguments>
@@ -265,7 +265,7 @@ alignment = 0;
             <string>if (obj_player.iframes &lt;= 0 &amp;&amp; alignment != 1)
     {
     obj_player.iframes = 15;
-    global.player_health -= 1;
+    global.player_health -= 100;
     instance_destroy();
     obj_player.draw_check = 1;
     }

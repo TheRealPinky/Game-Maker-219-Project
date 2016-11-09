@@ -30,6 +30,7 @@ bullet_cooldown = 0;
 iframes = 0; //sets up the code to make the player briefly invincible when hit.
 draw_check = 1;
 angle_dir = 0;
+player_is_shooting = 1; // Tells the 'Shoot' script that the player is firing, and to reference the player's variables
 </string>
           </argument>
         </arguments>
@@ -59,6 +60,7 @@ spd = 1; //speed
 
 if (global.player_health &lt;= 0)
 {
+    show_message("YOU DIED")
     game_end(); //closes the game when the player dies
 }
 </string>
@@ -92,7 +94,7 @@ if (hsp == 0 &amp;&amp; vsp == 0) {
 } else {
     direction = point_direction(0, 0, hsp, vsp);
     //image_angle = direction;
-    spd = 5;
+    spd = global.player_movespeed;
     hsp += spd*sign(hsp);
     vsp += spd*sign(vsp);
 }
@@ -102,7 +104,7 @@ script_execute(Collision);
 
 //===Shooting code.
 if(left_key + right_key + up_key + down_key &gt;= 1) {// if any one of those buttons is pressed.
-    script_execute(Shooting);
+    script_execute(Shooting, player_is_shooting);
 }
 </string>
           </argument>
@@ -137,13 +139,13 @@ if (draw_check = 1)
         instance_destroy();
         }
     position_tracker = 1;
-    while (health_tracker &gt; 1)
+    while (health_tracker &gt; 100)
         { 
         instance_create (position_tracker * 32, 32, obj_full_crystal);
         position_tracker ++;
-        health_tracker -= 2;
+        health_tracker -= 200;
         }
-    if (health_tracker = 1)
+    if (health_tracker = 100)
         {
         instance_create (position_tracker * 32, 32, obj_half_crystal);
         }
