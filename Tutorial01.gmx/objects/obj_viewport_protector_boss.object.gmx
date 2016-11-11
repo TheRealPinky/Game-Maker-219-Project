@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Initialization
 
-hp = 3500;
+hp = 400;
 chargetime = 60; //How long it takes the boss to charge its ramming attack
 ramming = 0; //Checks if the boss is charging at you
 global.enemies_in_room = 0;
@@ -62,7 +62,6 @@ target_y = p_y;
 if (hp &lt;= 0)
     {
     instance_destroy();
-    global.can_change_floors = 1;
     }
 </string>
           </argument>

@@ -55,6 +55,32 @@ alignment = 2; //sets who bullets can damage. 0 is anyone, 1 is enemies, 2 is pl
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_bullet">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (immortality &lt;= 0)
+{
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_bit">
       <action>
         <libid>1</libid>
@@ -76,7 +102,7 @@ alignment = 2; //sets who bullets can damage. 0 is anyone, 1 is enemies, 2 is pl
 
 if (alignment != 2)
 {
-other.hp -= global.player_damage;
+other.hp -= 1;
 instance_destroy();
 }
 </string>
@@ -103,7 +129,7 @@ instance_destroy();
             <kind>1</kind>
             <string>if (alignment != 2)
 {
-other.hp -= global.player_damage;
+other.hp -= 1;
 instance_destroy();
 }
 </string>
@@ -130,7 +156,7 @@ instance_destroy();
             <kind>1</kind>
             <string>if (alignment != 2)
 {
-other.hp -= global.player_damage;
+other.hp -= 1;
 instance_destroy();
 }
 </string>
@@ -159,7 +185,7 @@ instance_destroy();
 
 if (alignment != 2)
 {
-other.hp -= global.player_damage;
+other.hp -= 1;
 instance_destroy();
 }
 </string>
@@ -219,32 +245,6 @@ alignment = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_bullet">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/*if (immortality &lt;= 0)
-{
-    instance_destroy();
-}*/
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_player">
       <action>
         <libid>1</libid>
@@ -265,7 +265,7 @@ alignment = 0;
             <string>if (obj_player.iframes &lt;= 0 &amp;&amp; alignment != 1)
     {
     obj_player.iframes = 15;
-    global.player_health -= 100;
+    global.player_health -= 1;
     instance_destroy();
     obj_player.draw_check = 1;
     }

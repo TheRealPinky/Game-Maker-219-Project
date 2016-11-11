@@ -77,8 +77,50 @@ global.enemies_in_room += 1;
 p_x = obj_player.x;
 p_y = obj_player.y;
 
-move_towards_point(p_x, p_y, 2);
-image_angle = point_direction(x, y, p_x, p_y);
+/* GOALS
+    *IF IT CAN MOVE TOWARDS THE PLAYER, MOVE TOWARDS THE PLAYER
+    *IF SOMETHING IN THE WAY (ANOTHER ENEMY) FIRST TRY TO GET Y EQUAL (ABOVE OF BELOW)
+    *THEY TRY TO GET X EQUAL(RIGHT OR LEFT)
+    *IF IT CAN'T DO EITHER, WAIT UNTIL IT CAN.
+*/
+
+/* MORE ADVANCED STUFF ===todo===
+    *IF X DISTANCE IS GREATER THAN Y DISTANCE TRY TO CLOSE THAT FOR A RANDOM NUM OF SECONDS
+    *SAME FOR Y DISTANCE
+*/
+//===Temp x speed
+temp_xsp = sign(p_x - x); //===positive, we are right of player, negative left
+//===Temp y speed
+temp_ysp = sign(p_y - y); //===positive, we are below the player, negative above
+
+direction = point_direction(x,y,obj_player.x,obj_player.y);
+spd = 2;
+temp_xsp = spd*sign(temp_xsp);
+temp_ysp = spd*sign(temp_ysp);
+
+//===
+//===COLLISION BLOCK
+//===
+
+//===Horizontal collision of environment, enemy, or player
+if(place_meeting(x+temp_xsp, y, obj_environment) || place_meeting(x+temp_xsp, y, obj_enemy) || place_meeting(x+temp_xsp, y, obj_player)) { 
+    while(!place_meeting(x+sign(temp_xsp), y, obj_environment) &amp;&amp; !place_meeting(x+sign(temp_xsp), y, obj_enemy) &amp;&amp; !place_meeting(x+sign(temp_xsp), y, obj_player)) {
+        x += sign(temp_xsp);
+    }
+    temp_xsp = 0;
+}
+//===Not here because of firing code.
+//x += temp_xsp;
+
+//===Vertical collision of environment, enemy, or player
+if(place_meeting(x, y+temp_ysp, obj_environment) || place_meeting(x, y+temp_ysp, obj_enemy) || place_meeting(x, y+temp_ysp, obj_player)) { 
+    while(!place_meeting(x, y+sign(temp_ysp), obj_environment) &amp;&amp; !place_meeting(x, y+sign(temp_ysp), obj_enemy) &amp;&amp; !place_meeting(x, y+sign(temp_ysp), obj_player)) {
+        y += sign(temp_ysp);
+    }
+    temp_ysp = 0;
+}
+//===Not here because of firing code.
+//y += temp_ysp;
 </string>
           </argument>
         </arguments>
@@ -105,21 +147,22 @@ p_x = obj_player.x;
 p_y = obj_player.y;
 
 if (shot_CD &lt;= 0) {
-    bullet = instance_create(x, y, obj_bullet);
+    bullet = instance_create(x, y, obj_new_enemy_bullet);
     bullet.direction = point_direction(x, y, p_x, p_y);
-    bullet.image_angle = bullet.direction;
-    bullet.speed = 3;
+    bullet.bull_dir = point_direction(x, y, p_x, p_y);
+    //===Creates collision problems.
+//    bullet.image_angle = bullet.direction;
+    bullet.speed = 15;
     
+    /*/===PROBLEMS HERE
     dir = point_direction(x, y, p_x, p_y);
-    
     motion_add(dir, -10);
+    motion_add(dir, 9);*/
     
     shot_CD = 40;
 }
-
-if(health &lt;= 0) {
-    instance_destroy();
-}
+x += temp_xsp;
+y += temp_ysp;
 </string>
           </argument>
         </arguments>

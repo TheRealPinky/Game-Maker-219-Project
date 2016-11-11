@@ -13,6 +13,8 @@
     <sprite>sprites\spr_smile</sprite>
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_bullet</sprite>
+    <sprite>sprites\spr_new_bullet</sprite>
+    <sprite>sprites\spr_new_enemy_bullet</sprite>
     <sprite>sprites\spr_asteroid</sprite>
     <sprite>sprites\spr_asteroid_s</sprite>
     <sprite>sprites\spr_wall</sprite>
@@ -41,7 +43,6 @@
   </fonts>
   <objects name="objects">
     <object>objects\obj_player</object>
-    <object>objects\obj_bullet</object>
     <object>objects\obj_room_transition_object</object>
     <object>objects\obj_gameinitializer</object>
     <object>objects\obj_f01_intro_text</object>
@@ -66,12 +67,17 @@
       <object>objects\obj_smile</object>
     </objects>
     <object>objects\obj_music_control</object>
-    <object>objects\obj_floor_changer</object>
+    <object>objects\obj_shield</object>
+    <objects name="Bullets">
+      <object>objects\obj_bullet</object>
+      <object>objects\obj_par_bullet</object>
+      <object>objects\obj_new_bullet</object>
+      <object>objects\obj_new_enemy_bullet</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_f01_start</room>
     <room>rooms\rm_f01_boss1</room>
-    <room>rooms\rm_f02_start</room>
     <room>rooms\rm_f01_01</room>
     <room>rooms\rm_f01_02</room>
     <room>rooms\rm_f01_03</room>

@@ -25,9 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>cooldown = 0;
+            <string>//===Changing it to be random
+cooldown = random_range(0,51);
 hp = 300;
 global.enemies_in_room += 1; //adds to the global tracker for enemies in room on spawn
+
+
 </string>
           </argument>
         </arguments>
@@ -57,24 +60,29 @@ p_y = obj_player.y;
 
 if (cooldown &lt;= 0)
 {
-bullet1 = instance_create(x, y, obj_bullet); //creates the bullet object
-bullet1.direction = point_direction(obj_trishot.x, obj_trishot.y, p_x, p_y); // gets the player location and sets the bullet to fire at it
+bullet1 = instance_create(x, y, obj_new_enemy_bullet); //creates the bullet object
+//===Don't use obj_trishit.x here as it makes it so they all look the same way rather than having it be instance based.
+bullet1.direction = point_direction(x, y, p_x, p_y); // gets the player location and sets the bullet to fire at it
 bullet1.image_angle = bullet1.direction; // aligns the image to match the direction of the bullet
-obj_trishot.image_angle = bullet1.image_angle;
-bullet1.speed = 4; //sets how fast the bullet moves
+//===Same logic here
+image_angle = bullet1.image_angle;
+bullet1.speed = 12; //sets how fast the bullet moves
 
-bullet2 = instance_create(x, y, obj_bullet);
-bullet2.direction = point_direction(obj_trishot.x, obj_trishot.y, p_x, p_y);
+bullet2 = instance_create(x, y, obj_new_enemy_bullet);
+bullet2.direction = point_direction(x, y, p_x, p_y);
 bullet2.direction +=30;
 bullet2.image_angle = bullet2.direction;
-bullet2.speed = 4;
+bullet2.speed = 8;
 
-bullet3 = instance_create(x, y, obj_bullet);
-bullet3.direction = point_direction(obj_trishot.x, obj_trishot.y, p_x, p_y);
+bullet3 = instance_create(x, y, obj_new_enemy_bullet);
+bullet3.direction = point_direction(x, y, p_x, p_y);
 bullet3.direction -=30;
 bullet3.image_angle = bullet3.direction;
-bullet3.speed = 4;
-cooldown = 60;
+bullet3.speed = 8;
+cooldown = 50;
+//===Making cooldown rangom for funzie
+//randomize(); //===Makes it different everytime.
+//cooldown = random_range(40, 51); //===one higher because it takes the lowest number but 1 minus x2
 }
 
 

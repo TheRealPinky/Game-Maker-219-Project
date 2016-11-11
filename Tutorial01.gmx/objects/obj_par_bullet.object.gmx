@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp = 0;
+            <string>enum damages { //===Exactely like alignment but better because it's readable for humans
+    player,
+    enemy
+}
 </string>
           </argument>
         </arguments>
