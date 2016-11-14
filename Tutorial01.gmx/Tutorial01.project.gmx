@@ -25,6 +25,7 @@
     <sprite>sprites\spr_full_crystal</sprite>
     <sprite>sprites\spr_half_crystal</sprite>
     <sprite>sprites\spr_viewport_protector</sprite>
+    <sprite>sprites\spr_bit</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
