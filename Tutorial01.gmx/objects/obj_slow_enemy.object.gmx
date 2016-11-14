@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///init
-shot_CD = 0;
+shot_CD = 60;
 hp = 600;
 
 </string>
@@ -152,7 +152,7 @@ if (shot_CD &lt;= 0) {
     bullet.bull_dir = point_direction(x, y, p_x, p_y);
     //===Creates collision problems.
 //    bullet.image_angle = bullet.direction;
-    bullet.speed = 15;
+    bullet.speed = 12;
     
     /*/===PROBLEMS HERE
     dir = point_direction(x, y, p_x, p_y);
