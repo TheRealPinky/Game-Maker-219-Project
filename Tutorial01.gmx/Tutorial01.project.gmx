@@ -38,11 +38,15 @@
     <script>scripts\Collision.gml</script>
     <script>scripts\script3.gml</script>
     <script>scripts\musicChange.gml</script>
+    <script>scripts\boss_kill_item_spawn.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_cyber</font>
   </fonts>
   <objects name="objects">
+    <objects name="Items">
+      <object>objects\obj_item_new_mouse</object>
+    </objects>
     <object>objects\obj_player</object>
     <object>objects\obj_room_transition_object</object>
     <object>objects\obj_gameinitializer</object>
