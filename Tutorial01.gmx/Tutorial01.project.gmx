@@ -18,8 +18,8 @@
     <sprite>sprites\spr_asteroid</sprite>
     <sprite>sprites\spr_asteroid_s</sprite>
     <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_enemy_1</sprite>
-    <sprite>sprites\spr_tri_shot</sprite>
+    <sprite>sprites\spr_trishot</sprite>
+    <sprite>sprites\spr_slow_enemy</sprite>
     <sprite>sprites\room_transition</sprite>
     <sprite>sprites\spr_firewall</sprite>
     <sprite>sprites\spr_full_crystal</sprite>
