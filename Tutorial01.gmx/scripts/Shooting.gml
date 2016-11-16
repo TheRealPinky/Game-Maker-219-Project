@@ -7,7 +7,7 @@ x_addition = 0; //===This is for adding onto the x of the spawn code.
 y_addition = 0; //===This is for adding onto the y of the spawn code.
 
 if(bullet_cooldown <=0 && (loc_xdir != 0 || loc_ydir != 0)) {
-    bullet_cooldown = 15;
+    bullet_cooldown = global.player_firedelay;
     if (loc_xdir = 1) { //===Fire right
         loc_dir = -sign(vsp) * offset;
         x_addition = 32;

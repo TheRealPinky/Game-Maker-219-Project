@@ -54,7 +54,7 @@ angle_dir = 0;
             <kind>1</kind>
             <string>///Player Variables
 iframes -= 1;
-bullet_cooldown -=1;
+bullet_cooldown -= 1;
 spd = 1; //speed
 
 if (global.player_health &lt;= 0)

@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.floor1_rooms_left &gt;= 2)
+            <string>///Room Transition
+if (global.floor1_rooms_left &gt;= 2)
 {
 floor1_gen = random_range(2, 14); // Sends the player to a randomly chosen room on the same floor.
 round(floor1_gen);
