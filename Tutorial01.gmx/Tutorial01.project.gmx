@@ -28,6 +28,8 @@
     <sprite>sprites\spr_bit</sprite>
     <sprite>sprites\spr_item_new_mouse</sprite>
     <sprite>sprites\spr_item_broken_clock</sprite>
+    <sprite>sprites\spr_item_energy_drink</sprite>
+    <sprite>sprites\spr_item_ad_block</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
@@ -49,8 +51,8 @@
     <objects name="Items">
       <object>objects\obj_item_new_mouse</object>
       <object>objects\obj_item_broken_clock</object>
-      <object>objects\obj_item_energetic</object>
-      <object>objects\obj_item_brick_wall</object>
+      <object>objects\obj_item_energy_drink</object>
+      <object>objects\obj_item_ad_block</object>
     </objects>
     <object>objects\obj_player</object>
     <object>objects\obj_room_transition_object</object>
