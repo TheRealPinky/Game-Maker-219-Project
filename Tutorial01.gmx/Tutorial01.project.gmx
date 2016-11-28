@@ -18,6 +18,11 @@
     <sprite>sprites\spr_asteroid</sprite>
     <sprite>sprites\spr_asteroid_s</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_rock</sprite>
+    <sprite>sprites\spr_wall_bottom_right_corner</sprite>
+    <sprite>sprites\spr_wall_bottom_left_corner</sprite>
+    <sprite>sprites\spr_wall_top_right_corner</sprite>
+    <sprite>sprites\spr_wall_top_left_corner</sprite>
     <sprite>sprites\spr_trishot</sprite>
     <sprite>sprites\spr_slow_enemy</sprite>
     <sprite>sprites\room_transition</sprite>
@@ -30,6 +35,7 @@
     <sprite>sprites\spr_item_broken_clock</sprite>
     <sprite>sprites\spr_item_energy_drink</sprite>
     <sprite>sprites\spr_item_ad_block</sprite>
+    <sprite>sprites\spr_side_wall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
@@ -62,6 +68,12 @@
       <object>objects\obj_environment</object>
       <object>objects\obj_firewall</object>
       <object>objects\obj_wall</object>
+      <object>objects\obj_rock</object>
+      <object>objects\obj_bottom_right_corner_wall</object>
+      <object>objects\obj_bottom_left_corner_wall</object>
+      <object>objects\obj_top_right_corner_wall</object>
+      <object>objects\obj_top_left_corner_wall</object>
+      <object>objects\obj_side_wall</object>
     </objects>
     <object>objects\obj_full_crystal</object>
     <object>objects\obj_half_crystal</object>
@@ -103,10 +115,10 @@
     <room>rooms\rm_f01_11</room>
     <room>rooms\rm_f01_12</room>
     <room>rooms\rm_template_floor1</room>
-    <room>rooms\rm_TEMPLATE</room>
     <room>rooms\rm_enemy_testing_lab</room>
     <room>rooms\rm_f01_intro</room>
     <room>rooms\rm_asteroids</room>
+    <room>rooms\rm_TEMPLATE</room>
     <room>rooms\Test</room>
     <room>rooms\rm_skyroom</room>
   </rooms>
