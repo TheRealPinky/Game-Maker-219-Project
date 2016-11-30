@@ -85,6 +85,7 @@
     <object>objects\obj_half_crystal</object>
     <objects name="enemy">
       <object>objects\obj_viewport_protector_boss</object>
+      <object>objects\obj_byte_boss</object>
       <object>objects\obj_slow_enemy</object>
       <object>objects\obj_trishot</object>
       <object>objects\obj_enemy</object>
