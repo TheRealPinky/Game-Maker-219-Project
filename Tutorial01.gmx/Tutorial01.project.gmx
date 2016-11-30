@@ -10,19 +10,24 @@
     <sound>sound\snd_challenger_loop</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_smile</sprite>
+    <sprites name="Junk">
+      <sprite>sprites\spr_smile</sprite>
+      <sprite>sprites\spr_bullet</sprite>
+      <sprite>sprites\spr_asteroid_s</sprite>
+      <sprite>sprites\spr_asteroid</sprite>
+    </sprites>
     <sprite>sprites\spr_player</sprite>
-    <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_new_bullet</sprite>
     <sprite>sprites\spr_new_enemy_bullet</sprite>
-    <sprite>sprites\spr_asteroid</sprite>
-    <sprite>sprites\spr_asteroid_s</sprite>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_rock</sprite>
-    <sprite>sprites\spr_wall_bottom_right_corner</sprite>
-    <sprite>sprites\spr_wall_bottom_left_corner</sprite>
-    <sprite>sprites\spr_wall_top_right_corner</sprite>
-    <sprite>sprites\spr_wall_top_left_corner</sprite>
+    <sprites name="Walls">
+      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_rock</sprite>
+      <sprite>sprites\spr_wall_bottom_right_corner</sprite>
+      <sprite>sprites\spr_wall_bottom_left_corner</sprite>
+      <sprite>sprites\spr_wall_top_right_corner</sprite>
+      <sprite>sprites\spr_wall_top_left_corner</sprite>
+      <sprite>sprites\spr_side_wall</sprite>
+    </sprites>
     <sprite>sprites\spr_trishot</sprite>
     <sprite>sprites\spr_slow_enemy</sprite>
     <sprite>sprites\room_transition</sprite>
@@ -35,11 +40,12 @@
     <sprite>sprites\spr_item_broken_clock</sprite>
     <sprite>sprites\spr_item_energy_drink</sprite>
     <sprite>sprites\spr_item_ad_block</sprite>
-    <sprite>sprites\spr_side_wall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
     <background>background\bg_floor1bg</background>
+    <background>background\bg_floor2bg</background>
+    <background>background\bg_bossbg</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -101,6 +107,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_f01_start</room>
+    <room>rooms\rm_f02_start</room>
     <room>rooms\rm_f01_boss1</room>
     <room>rooms\rm_f01_01</room>
     <room>rooms\rm_f01_02</room>
@@ -114,7 +121,13 @@
     <room>rooms\rm_f01_10</room>
     <room>rooms\rm_f01_11</room>
     <room>rooms\rm_f01_12</room>
+    <room>rooms\rm_f02_01</room>
+    <room>rooms\rm_f02_02</room>
+    <room>rooms\rm_f02_03</room>
+    <room>rooms\rm_f02_04</room>
+    <room>rooms\rm_f02_05</room>
     <room>rooms\rm_template_floor1</room>
+    <room>rooms\rm_template_floor2</room>
     <room>rooms\rm_enemy_testing_lab</room>
     <room>rooms\rm_f01_intro</room>
     <room>rooms\rm_asteroids</room>

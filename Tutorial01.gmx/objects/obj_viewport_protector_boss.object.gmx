@@ -27,14 +27,19 @@
             <kind>1</kind>
             <string>///Initialization
 
-hp = 400;
+hp = 4000;
 chargetime = 60; //How long it takes the boss to charge its ramming attack
-ramming = 0; //Checks if the boss is charging at you
+ramming = false; //Checks if the boss is charging at you
 global.enemies_in_room = 0;
 p_x = obj_player.x; //creates variable for the player object's name
 p_y = obj_player.y;
 target_x = p_x; // Sets where the boss moves to during a charge attack
 target_y = p_y;
+
+//===Ramming speed
+ramSpd = 8;
+chargeNum = 0;
+boss_angle_dir = 0;
 </string>
           </argument>
         </arguments>
@@ -62,8 +67,10 @@ target_y = p_y;
 if (hp &lt;= 0)
     {
     instance_destroy();
+    /*
     global.pickup_object = 1;
-    script_execute(boss_kill_item_spawn_);
+    script_execute(boss_kill_item_spawn);
+    */
     }
 </string>
           </argument>
@@ -85,39 +92,89 @@ if (hp &lt;= 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Attack
+            <string>///Attack / Dash
 p_x = obj_player.x; //creates variable for the player object's name
 p_y = obj_player.y;
-chargetime -= 1;
 
-if (ramming = 45)
-    {
+/* Goals
+    *Have boss charge at player.
+    *Charge at player until it hits a wall (ram through)
+    *Charge getfaster over a few seconds.
+    *leaves a field on the ground after a few seconds if it HASN'T hit the player.
+    *field makes the boss stop there instead. (makes room smaller).
+*/
+
+//===If the boss can charge, start charging
+if (chargetime &lt;= 0) {
     target_x = p_x;
     target_y = p_y;
-    image_angle = point_direction(x, y, target_x, target_y);
-    }
     
-if (ramming &gt; 0)
-    {
-    move_towards_point( target_x, target_y, 8 );
-    ramming -= 1;
-    }
+    //===Look at the player
+    boss_angle_dir = point_direction(x,y,target_x,target_y);
+    direction = point_direction(x,y,target_x,target_y);
     
-if (ramming = 0)
-    {
+    //===Get speed of ram
+    ramSpd += chargeNum;
+    chargeNum++;
+    
+    //===last Resets
+    speed = ramSpd;
+    
+//    show_message("hspeed = " + string(hspeed) + "vspeed = " + string(vspeed));
+    ramming = true;
     chargetime = 60;
+}
+
+//
+//===The Hard part
+//
+//===If you are going to collide with a wall
+
+
+if (place_meeting(x + hspeed,y + vspeed,obj_wall)) {
+    ramming = false;
+    //===get direction here in .1 value for addition.
+    temp_hspeed = sign(hspeed) * .1;   
+    temp_vspeed = sign(vspeed) * .1;
+    while(!place_meeting(x + temp_hspeed, y, obj_wall)) {
+        temp_hspeed = temp_hspeed + (sign(temp_hspeed) * .1);
+    }
+    
+    while(!place_meeting(x, y + temp_vspeed, obj_wall)) {
+        temp_vspeed = temp_vspeed + (sign(temp_vspeed) * .1);
+    }
+    //===For Debugging, un comment for cool shit
+    /*
+    show_message("hspeed = " + string(hspeed) + " vspeed = " + string(vspeed)
+        + " temp_hspeed = " + string(temp_hspeed) + " temp_vspeed = " + string(temp_vspeed)
+        + " abs temp_h = " + string(abs(temp_hspeed)) + " abs temp_v = " + string(abs(temp_vspeed)));
+    */
+    //===Needs work but almost done.
+    if (abs(temp_hspeed) &lt; abs(temp_vspeed)) {
+        x += temp_hspeed;
+        //===y = a formula which takes in direction
+        y += vspeed;
+    } else if (abs(temp_vspeed) &lt; abs(temp_hspeed)) {
+        y += temp_vspeed;
+        //===x = a formula which takes in direction
+        x += hspeed
+    } else if (abs(temp_hspeed) == abs(temp_vspeed)) {
+        x += temp_hspeed;
+        y += temp_vspeed;
+    }
+
     speed = 0;
-    ramming -= 1;
-    }
-if (chargetime &gt; 0)
-    {
+}
+
+
+if (ramming == false) {
     chargetime -= 1;
-    //PLAY_SHAKING_ANIMATION (Psuedocode placeholder for calling the charing an attack animation
-    }
-if (chargetime = 0)
-    {
-    ramming = 45;
-    }
+}
+
+if (chargeNum == 5) {
+    ramSpd = 8; //===Default
+    chargeNum = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -148,6 +205,30 @@ if (obj_player.iframes &lt;= 0)
     global.player_health -= 100;
     obj_player.draw_check = 1;
     }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite_ext(spr_viewport_protector, 0, x, y,
+            image_xscale, image_yscale, boss_angle_dir, c_white, image_alpha);
 </string>
           </argument>
         </arguments>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Globals
 global.enemies_in_room = 0;
-global.floor1_rooms_left = 8;
+global.floor1_rooms_left = 2;
 global.can_change_floors = 0;
 global.floor_player_is_on = 1;
 global.pickup_object = 0; //Variable controlling items despawning at the end of a floor.
@@ -55,8 +55,8 @@ global.pickup_object = 0; //Variable controlling items despawning at the end of 
             <string>///Item Array
 global.items_in_game[0] = obj_item_new_mouse;
 global.items_in_game[1] = obj_item_broken_clock;
-global.items_in_game[2] = obj_item_energetic;
-global.items_in_game[3] = obj_item_brick_wall;
+global.items_in_game[2] = obj_item_energy_drink;
+global.items_in_game[3] = obj_item_ad_block;
 </string>
           </argument>
         </arguments>
