@@ -27,9 +27,10 @@
             <kind>1</kind>
             <string>///Globals
 global.enemies_in_room = 0;
-global.floor1_rooms_left = 2;
+global.floor1_rooms_left = 8;
+global.floor2_rooms_left = 8;
 global.can_change_floors = 0;
-global.floor_player_is_on = 1;
+global.current_floor = 1;
 global.pickup_object = 0; //Variable controlling items despawning at the end of a floor.
 //global.floor1_rooms_left = (random_range(7,9));
 </string>
