@@ -40,6 +40,8 @@ target_y = p_y;
 ramSpd = 8;
 chargeNum = 0;
 boss_angle_dir = 0;
+var_created = 0;
+run = false;
 </string>
           </argument>
         </arguments>
@@ -70,6 +72,7 @@ if (hp &lt;= 0)
     /*
     global.pickup_object = 1;
     script_execute(boss_kill_item_spawn);
+    instance_create(448,160,obj_floor_transition);
     */
     }
 </string>
@@ -129,43 +132,17 @@ if (chargetime &lt;= 0) {
 //===The Hard part
 //
 //===If you are going to collide with a wall
-
-
-if (place_meeting(x + hspeed,y + vspeed,obj_wall)) {
-    ramming = false;
-    //===get direction here in .1 value for addition.
-    temp_hspeed = sign(hspeed) * .1;   
-    temp_vspeed = sign(vspeed) * .1;
-    while(!place_meeting(x + temp_hspeed, y, obj_wall)) {
-        temp_hspeed = temp_hspeed + (sign(temp_hspeed) * .1);
-    }
-    
-    while(!place_meeting(x, y + temp_vspeed, obj_wall)) {
-        temp_vspeed = temp_vspeed + (sign(temp_vspeed) * .1);
-    }
-    //===For Debugging, un comment for cool shit
-    /*
-    show_message("hspeed = " + string(hspeed) + " vspeed = " + string(vspeed)
-        + " temp_hspeed = " + string(temp_hspeed) + " temp_vspeed = " + string(temp_vspeed)
-        + " abs temp_h = " + string(abs(temp_hspeed)) + " abs temp_v = " + string(abs(temp_vspeed)));
-    */
-    //===Needs work but almost done.
-    if (abs(temp_hspeed) &lt; abs(temp_vspeed)) {
-        x += temp_hspeed;
-        //===y = a formula which takes in direction
-        y += vspeed;
-    } else if (abs(temp_vspeed) &lt; abs(temp_hspeed)) {
-        y += temp_vspeed;
-        //===x = a formula which takes in direction
-        x += hspeed
-    } else if (abs(temp_hspeed) == abs(temp_vspeed)) {
-        x += temp_hspeed;
-        y += temp_vspeed;
-    }
-
-    speed = 0;
+if (place_meeting(x + hspeed,y + vspeed,obj_environment)) {
+    script_execute(ViewPortCollis1);
 }
-
+/*
+var inst = instance_place(x+hspeed,y+vspeed,damage_field);
+if (place_meeting(x+hspeed,y+vspeed,damage_field)) {
+    if (inst.created == var_created) {
+        script_execute(ViewPortCollis2);
+    }
+}
+*/
 
 if (ramming == false) {
     chargetime -= 1;

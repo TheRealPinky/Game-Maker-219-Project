@@ -122,6 +122,7 @@ if (what_do = 9)
 if (hp &lt;= 0)
     {
     instance_destroy();
+    global.enemies_in_room -= 1;
     }
 </string>
           </argument>
