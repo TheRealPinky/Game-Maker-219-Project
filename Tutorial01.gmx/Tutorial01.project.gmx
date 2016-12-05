@@ -27,6 +27,7 @@
       <sprite>sprites\spr_wall_top_right_corner</sprite>
       <sprite>sprites\spr_wall_top_left_corner</sprite>
       <sprite>sprites\spr_side_wall</sprite>
+      <sprite>sprites\spr_omnom_wall</sprite>
     </sprites>
     <sprite>sprites\spr_trishot</sprite>
     <sprite>sprites\spr_slow_enemy</sprite>
