@@ -65,19 +65,22 @@ bullet1 = instance_create(x, y, obj_new_enemy_bullet); //creates the bullet obje
 bullet1.direction = point_direction(x, y, p_x, p_y); // gets the player location and sets the bullet to fire at it
 bullet1.image_angle = bullet1.direction; // aligns the image to match the direction of the bullet
 //===Same logic here
-image_angle = bullet1.image_angle;
+bullet1.bull_dir = bullet1.image_angle;
+image_angle = bullet1.direction;
 bullet1.speed = 12; //sets how fast the bullet moves
 
 bullet2 = instance_create(x, y, obj_new_enemy_bullet);
 bullet2.direction = point_direction(x, y, p_x, p_y);
 bullet2.direction +=30;
 bullet2.image_angle = bullet2.direction;
+bullet2.bull_dir = bullet2.image_angle;
 bullet2.speed = 8;
 
 bullet3 = instance_create(x, y, obj_new_enemy_bullet);
 bullet3.direction = point_direction(x, y, p_x, p_y);
 bullet3.direction -=30;
 bullet3.image_angle = bullet3.direction;
+bullet3.bull_dir = bullet3.image_angle;
 bullet3.speed = 8;
 cooldown = 50;
 //===Making cooldown rangom for funzie
