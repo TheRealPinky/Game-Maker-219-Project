@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Init
-hp = 2;
+hp = 100;
 </string>
           </argument>
         </arguments>
@@ -74,7 +74,7 @@ global.enemies_in_room += 1;
             <string>///Movement Code
 p_x = obj_player.x; //creates variable for the player object's name
 p_y = obj_player.y;
-move_angle = 0; //Sets direction angle
+//move_angle = 0; //Sets direction angle
 player_angle = 0; //Checks angle from enemy to player
 what_do = irandom_range(0,9);
 if (what_do &lt; 6)
@@ -96,7 +96,6 @@ if (what_do = 9)
     }
     
     
-
 </string>
           </argument>
         </arguments>
@@ -128,6 +127,61 @@ if (hp &lt;= 0)
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision Code
+
+//===Temp x speed
+temp_xsp = sign(p_x - x); //===positive, we are right of player, negative left
+//===Temp y speed
+temp_ysp = sign(p_y - y); //===positive, we are below the player, negative above
+
+temp_xsp = speed*sign(temp_xsp);
+temp_ysp = speed*sign(temp_ysp);
+
+//===
+//===COLLISION BLOCK
+//===
+
+//===Horizontal collision of environment, enemy, or player
+if(place_meeting(x+temp_xsp, y, obj_player)) { 
+    while(!place_meeting(x+sign(temp_xsp), y, obj_player)) {
+        x += sign(temp_xsp);
+    }
+    temp_xsp = 0;
+    player_angle = point_direction(x, y, p_x, p_y);
+    direction = player_angle+180;
+    speed = 3;
+}
+
+//===Vertical collision of environment, enemy, or player
+if(place_meeting(x, y+temp_ysp,  obj_player)) { 
+    while(!place_meeting(x, y+sign(temp_ysp), obj_player)) {
+        y += sign(temp_ysp);
+    }
+    temp_ysp = 0;
+    player_angle = point_direction(x, y, p_x, p_y);
+    direction = player_angle+180;
+    speed = 3;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_player">
       <action>
@@ -147,7 +201,7 @@ if (hp &lt;= 0)
           <argument>
             <kind>1</kind>
             <string>///Hit Player
-
+show_message("Ht te player")
 if (obj_player.iframes &lt;= 0)
     {
     obj_player.iframes = 15;

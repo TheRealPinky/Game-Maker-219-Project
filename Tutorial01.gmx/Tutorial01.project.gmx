@@ -41,7 +41,7 @@
     <sprite>sprites\spr_item_broken_clock</sprite>
     <sprite>sprites\spr_item_energy_drink</sprite>
     <sprite>sprites\spr_item_ad_block</sprite>
-    <sprite>sprites\sprite16</sprite>
+    <sprite>sprites\spr_damage_zone</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
@@ -58,6 +58,7 @@
     <script>scripts\musicChange.gml</script>
     <script>scripts\boss_kill_item_spawn.gml</script>
     <script>scripts\ViewPortCollis1.gml</script>
+    <script>scripts\byte_collision.gml</script>
     <script>scripts\ViewPortCollis2.gml</script>
   </scripts>
   <fonts name="fonts">
@@ -116,6 +117,7 @@
     <room>rooms\rm_f01_start</room>
     <room>rooms\rm_f02_start</room>
     <room>rooms\rm_f01_boss1</room>
+    <room>rooms\rm_f02_boss1</room>
     <room>rooms\rm_f01_01</room>
     <room>rooms\rm_f01_02</room>
     <room>rooms\rm_f01_03</room>

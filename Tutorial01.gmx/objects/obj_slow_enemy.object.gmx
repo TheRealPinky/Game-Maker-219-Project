@@ -142,6 +142,9 @@ if(place_meeting(x, y+temp_ysp, obj_environment) || place_meeting(x, y+temp_ysp,
           <argument>
             <kind>1</kind>
             <string>///fire
+
+
+
 shot_CD -= 1;
 p_x = obj_player.x;
 p_y = obj_player.y;
@@ -154,15 +157,22 @@ if (shot_CD &lt;= 0) {
 //    bullet.image_angle = bullet.direction;
     bullet.speed = 12;
     
-    /*/===PROBLEMS HERE
+    /*===PROBLEMS HERE
     dir = point_direction(x, y, p_x, p_y);
     motion_add(dir, -10);
     motion_add(dir, 9);*/
+    
+    
+    
     
     shot_CD = 40;
 }
 x += temp_xsp;
 y += temp_ysp;
+
+
+
+
 </string>
           </argument>
         </arguments>
