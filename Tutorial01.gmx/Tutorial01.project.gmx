@@ -43,6 +43,7 @@
     <sprite>sprites\spr_item_ad_block</sprite>
     <sprite>sprites\spr_damage_zone</sprite>
     <sprite>sprites\spr_floor_transition</sprite>
+    <sprite>sprites\spr_byte</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
