@@ -53,7 +53,7 @@ if (global.pickup_object == 0)
           <argument>
             <kind>1</kind>
             <string>///Player Upgrade Code
-global.player_movespeed += 1;
+global.player_movespeed = global.player_movespeed * 1.25;
 global.pickup_object = 0;
 show_message("Click fast, go fast.")
 

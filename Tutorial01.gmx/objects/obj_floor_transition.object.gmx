@@ -25,15 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.current_floor = 1)
+            <string>///Floor Change
+if (global.current_floor = 1)
     {
     room_goto(1);
+    global.current_floor = 2;
     }
     
-if (global.current_floor = 2)
+else if (global.current_floor = 2)
     {
     show_message("Congratulations on beating all current content! Check back later for more!")
+    game_end();
     }
+
 </string>
           </argument>
         </arguments>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///init
 shot_CD = 60;
-hp = 600;
+hp = 500;
 
 </string>
           </argument>

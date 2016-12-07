@@ -28,13 +28,14 @@
             <string>///Globals
 global.enemies_in_room = 0;
 //FOR TESTING
-/*global.floor1_rooms_left = 2;
-global.floor2_rooms_left = 2;*/
-global.floor1_rooms_left = 8;
-global.floor2_rooms_left = 8;
+//global.floor1_rooms_left = 2;
+//global.floor2_rooms_left = 2;
+global.floor1_rooms_left = 6;
+global.floor2_rooms_left = 6;
 global.can_change_floors = 0;
 global.current_floor = 1;
 global.pickup_object = 0; //Variable controlling items despawning at the end of a floor.
+global.previous_room = -1
 //global.floor1_rooms_left = (random_range(7,9));
 </string>
           </argument>
@@ -106,10 +107,33 @@ randomize();
             <kind>1</kind>
             <string>///Player Stat Setter
 global.player_health = 600;
-global.player_firedelay = 30;
+global.player_max_health = 600;
+global.player_firedelay = 24;
 global.player_damage = 100;
-global.player_movespeed = 5;
+global.player_movespeed = 6;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Tracker for Item Effects
+global.player_can_pierce = 0;
 </string>
           </argument>
         </arguments>

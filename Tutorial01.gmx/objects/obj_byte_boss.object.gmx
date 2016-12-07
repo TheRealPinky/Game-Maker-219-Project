@@ -68,6 +68,10 @@ if (hp &lt;= 0)
     global.pickup_object = 1;
     script_execute(boss_kill_item_spawn);
     instance_create(448, 160, obj_floor_transition);
+    with (obj_bit)
+        {
+        instance_destroy();
+        }
     }
 </string>
           </argument>

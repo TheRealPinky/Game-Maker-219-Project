@@ -51,7 +51,7 @@
             <string>if (obj_player.iframes &lt;= 0)
     {
     obj_player.iframes = 30;
-    global.player_health -= 1;
+    global.player_health -= 100;
     obj_player.draw_check = 1;
     }
 </string>

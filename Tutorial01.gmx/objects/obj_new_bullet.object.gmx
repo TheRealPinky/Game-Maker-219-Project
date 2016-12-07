@@ -70,7 +70,10 @@ if (instance_place(x,y,obj_enemy)) {
 //    if (alignment != 2) {
         inst.hp -= global.player_damage;;
 //    }
-    instance_destroy();
+    if (global.player_can_pierce = 0)
+        {
+        instance_destroy();
+        }
 }
 if (place_meeting(x,y,obj_shield)) { //===if it's anything but the shield, kill itself
     //===bounce
