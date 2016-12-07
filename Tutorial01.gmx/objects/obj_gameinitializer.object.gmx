@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>///Globals
 global.enemies_in_room = 0;
+//FOR TESTING
+/*global.floor1_rooms_left = 2;
+global.floor2_rooms_left = 2;*/
 global.floor1_rooms_left = 8;
 global.floor2_rooms_left = 8;
 global.can_change_floors = 0;
