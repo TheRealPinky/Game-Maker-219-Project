@@ -35,18 +35,18 @@ global.floor1_rooms_left -= 1;
 
 else if (global.floor1_rooms_left = 1)
 {
-room_goto (5); // Sends the player to the boss room. [UPDATE WHENEVER WE CHANGE THE POSITION OF THE BOSS ROOM]
+room_goto (2); // Sends the player to the boss room. [UPDATE WHENEVER WE CHANGE THE POSITION OF THE BOSS ROOM]
 global.floor1_rooms_left = -1;
 }
 
-else if (global.floor2_rooms_left &gt;= 2)
+else if (global.floor2_rooms_left &gt;= 2 &amp;&amp; global.floor1_rooms_left &lt;= 0)
 {
 floor_gen = irandom_range(16, 23); // Sends the player to a randomly chosen room on the same floor.
 room_goto (floor_gen);
 global.floor1_rooms_left -= 1;
 }
 
-else if (global.floor2_rooms_left = 1)
+else if (global.floor2_rooms_left = 1 &amp;&amp; global.floor1_rooms_left &lt;= 0)
 {
 room_goto (3); // Sends the player to the boss room. [UPDATE WHENEVER WE CHANGE THE POSITION OF THE BOSS ROOM]
 global.floor1_rooms_left = -1;
