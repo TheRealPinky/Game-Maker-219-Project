@@ -44,6 +44,7 @@
     <sprite>sprites\spr_damage_zone</sprite>
     <sprite>sprites\spr_floor_transition</sprite>
     <sprite>sprites\spr_byte</sprite>
+    <sprite>sprites\spr_invisible</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_clouds</background>
@@ -116,6 +117,7 @@
     <object>objects\damage_field</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_enemy_testing_lab</room>
     <room>rooms\rm_f01_start</room>
     <room>rooms\rm_f02_start</room>
     <room>rooms\rm_f01_boss1</room>
@@ -141,7 +143,6 @@
     <room>rooms\rm_f02_07</room>
     <room>rooms\rm_f02_08</room>
     <room>rooms\rm_template_floor1</room>
-    <room>rooms\rm_enemy_testing_lab</room>
     <room>rooms\rm_template_floor2</room>
     <room>rooms\rm_f01_intro</room>
     <room>rooms\rm_asteroids</room>

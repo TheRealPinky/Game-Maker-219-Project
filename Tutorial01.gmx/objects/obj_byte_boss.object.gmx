@@ -33,7 +33,8 @@ p_x = obj_player.x; //creates variable for the player object's name
 p_y = obj_player.y;
 byte_x_angle = 832;
 byte_y_angle = 0;
-
+changer_1 = 0; //randomizes bouncing to vary movement
+changer_2 = 0;
 
 boss_angle_dir = point_direction(obj_byte_boss.x, obj_byte_boss.y, byte_x_angle,byte_y_angle);
 direction = point_direction(obj_byte_boss.x, obj_byte_boss.y, byte_x_angle,byte_y_angle);
@@ -173,6 +174,12 @@ if (cooldown = 0)
             <kind>1</kind>
             <string>///Bounce Code
 move_bounce_all(true);
+/*changer_1 = irandom_range(-25,25);
+changer_2 = irandom_range(-25,25);
+byte_x_angle += changer_1;
+byte_y_angle += changer_2;
+direction = point_direction(obj_byte_boss.x, obj_byte_boss.y, byte_x_angle,byte_y_angle);*/
+//Code to make the bounce angle vary. Currently breaking against the collision code somehow, look into after break.
 </string>
           </argument>
         </arguments>
@@ -199,7 +206,7 @@ move_bounce_all(true);
 
 if (obj_player.iframes &lt;= 0)
     {
-    obj_player.iframes = 15;
+    obj_player.iframes = 30;
     global.player_health -= 100;
     obj_player.draw_check = 1;
     }

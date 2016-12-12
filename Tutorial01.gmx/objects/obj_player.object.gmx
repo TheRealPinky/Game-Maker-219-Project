@@ -30,6 +30,7 @@ bullet_cooldown = 0;
 iframes = 0; //sets up the code to make the player briefly invincible when hit.
 draw_check = 1;
 angle_dir = 0;
+toggle = 0;//toggle visibility during iframes
 </string>
           </argument>
         </arguments>
@@ -56,6 +57,7 @@ angle_dir = 0;
 iframes -= 1;
 bullet_cooldown -= 1;
 spd = 1; //speed
+
 
 if (global.player_health &lt;= 0)
 {
@@ -170,7 +172,7 @@ if (draw_check = 1)
           <argument>
             <kind>1</kind>
             <string>///Invincibility Frames
-
+/*
 if (iframes &gt; 0)
     {
     if (obj_player.image_alpha = 1)
@@ -187,7 +189,7 @@ if (iframes &gt; 0)
 if (iframes &lt;= 0)
     {
     obj_player.image_alpha = 1;
-    }
+    }*/
 </string>
           </argument>
         </arguments>
@@ -210,9 +212,30 @@ if (iframes &lt;= 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>    draw_sprite_ext(spr_player, 0, obj_player.x, obj_player.y,
-                image_xscale, image_yscale, angle_dir, c_white, image_alpha);
+            <string>///Draw Code
 
+//    draw_sprite_ext(spr_player, 0, obj_player.x, obj_player.y,
+  //              image_xscale, image_yscale, angle_dir, c_white, image_alpha);
+if (iframes &gt; 0)
+    {
+    if (toggle == 0)
+        {
+       draw_sprite_ext(spr_invisible, 0, obj_player.x, obj_player.y,
+                image_xscale, image_yscale, angle_dir, c_white, image_alpha);
+        toggle = 1;
+        }
+   /* else if (toggle == 1)
+        {
+       draw_sprite_ext(spr_player, 0, obj_player.x, obj_player.y,
+                image_xscale, image_yscale, angle_dir, c_white, image_alpha);
+        toggle = 0;
+        }*/
+    }
+if (iframes &lt;= 0)
+    {
+    draw_sprite_ext(spr_player, 0, obj_player.x, obj_player.y,
+                image_xscale, image_yscale, angle_dir, c_white, image_alpha);
+    }
 </string>
           </argument>
         </arguments>

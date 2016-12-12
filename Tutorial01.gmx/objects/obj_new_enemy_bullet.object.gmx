@@ -65,7 +65,7 @@ if (instance_place(x,y,obj_new_bullet)) {
 //===Collide with player.
 if (instance_place(x,y,obj_player)) {
     if(obj_player.iframes &lt;= 0) {
-        obj_player.iframes = 15;
+        obj_player.iframes = 30;
         global.player_health -= 100;
         obj_player.draw_check = 1;
     }

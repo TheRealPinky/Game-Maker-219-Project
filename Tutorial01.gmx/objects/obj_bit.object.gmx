@@ -204,7 +204,7 @@ if(place_meeting(x, y+temp_ysp,  obj_player)) {
 show_message("Ht te player")
 if (obj_player.iframes &lt;= 0)
     {
-    obj_player.iframes = 15;
+    obj_player.iframes = 30;
     global.player_health -= 1;
     obj_player.draw_check = 1;
     }
