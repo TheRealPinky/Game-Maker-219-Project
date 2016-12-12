@@ -201,7 +201,6 @@ if(place_meeting(x, y+temp_ysp,  obj_player)) {
           <argument>
             <kind>1</kind>
             <string>///Hit Player
-show_message("Ht te player")
 if (obj_player.iframes &lt;= 0)
     {
     obj_player.iframes = 30;
