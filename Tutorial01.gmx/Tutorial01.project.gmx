@@ -8,6 +8,7 @@
     <sound>sound\snd_getting_paid</sound>
     <sound>sound\snd_challenger_start</sound>
     <sound>sound\snd_challenger_loop</sound>
+    <sound>sound\snd_explosion</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Junk">

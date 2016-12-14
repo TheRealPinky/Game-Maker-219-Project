@@ -57,7 +57,7 @@ global.player_max_health += 200;
 global.player_health = global.player_max_health;
 obj_player.draw_check = 1;
 global.pickup_object = 0;
-show_message("Brick walls are harder to punch through.");
+show_message("Block Ads. And bullets!");
 </string>
           </argument>
         </arguments>

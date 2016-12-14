@@ -70,7 +70,7 @@ if (instance_place(x,y,obj_enemy)) {
 //    if (alignment != 2) {
         inst.hp -= global.player_damage;;
 //    }
-    if (global.player_can_pierce = 0)
+    if (global.player_can_pierce != 2) //  WILL NEVER BE TRUE FOR NOW, NEED TO REWORK CODE FOR COLLISIONS
         {
         instance_destroy();
         }

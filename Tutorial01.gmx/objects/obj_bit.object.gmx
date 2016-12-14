@@ -120,6 +120,7 @@ if (what_do = 9)
 
 if (hp &lt;= 0)
     {
+    audio_play_sound(snd_explosion, 10, false);
     instance_destroy();
     global.enemies_in_room -= 1;
     }
